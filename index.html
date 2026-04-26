@@ -10,8 +10,8 @@
     <header class="hero">
       <h1>Dashboard de Mercado de Vivienda</h1>
       <p>
-        Seguimiento del aumento de precio de la vivienda, precio medio y
-        métricas relevantes del sector.
+        Seguimiento del aumento de precio de la vivienda, precio medio y métricas
+        relevantes por provincia en España.
       </p>
     </header>
 
@@ -26,10 +26,35 @@
         <canvas id="priceChart" height="130"></canvas>
       </section>
 
+      <section class="panel map-panel">
+        <div class="panel-header">
+          <h2>Mapa interactivo de provincias</h2>
+          <span class="badge">Click en una provincia</span>
+        </div>
+
+        <div class="map-layout">
+          <div class="map-wrap">
+            <svg id="provinceMap" viewBox="0 0 760 560" aria-label="Mapa interactivo de provincias"></svg>
+            <div id="mapTooltip" class="map-tooltip" role="status" aria-live="polite"></div>
+          </div>
+
+          <aside class="province-info" id="province-info">
+            <h3 id="province-name">Selecciona una provincia</h3>
+            <p id="province-region" class="muted"></p>
+            <ul class="province-metrics">
+              <li><span>Precio medio</span><strong id="province-price">-</strong></li>
+              <li><span>Variación interanual</span><strong id="province-yoy">-</strong></li>
+              <li><span>Precio alquiler</span><strong id="province-rent">-</strong></li>
+              <li><span>Rentabilidad bruta</span><strong id="province-yield">-</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
       <section class="split-grid">
         <article class="panel">
           <div class="panel-header">
-            <h2>Variación interanual por ciudad</h2>
+            <h2>Top 10 provincias con más subida</h2>
           </div>
           <ul id="city-list" class="city-list"></ul>
         </article>
@@ -46,7 +71,7 @@
     <footer>
       <small>
         * Datos de ejemplo para visualización. Puedes conectarlo a una API real
-        (INE, idealista, etc.) más adelante.
+        (MITMA, INE, idealista, etc.) más adelante.
       </small>
     </footer>
 
