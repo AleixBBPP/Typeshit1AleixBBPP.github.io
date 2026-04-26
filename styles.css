@@ -1,0 +1,277 @@
+:root {
+  --panel: #121c2f;
+  --muted: #9fb0ce;
+  --text: #e8eefc;
+  --accent: #60a5fa;
+  --green: #22c55e;
+  --red: #f87171;
+  --amber: #fbbf24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(180deg, #0a1020 0%, #0f1a30 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.hero {
+  padding: 2.5rem 1rem 1.25rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+}
+
+.hero p {
+  margin: 0.7rem auto 0;
+  max-width: 760px;
+  color: var(--muted);
+}
+
+.container {
+  width: min(1140px, 94%);
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 2.5rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+
+.card,
+.panel {
+  background: rgba(18, 28, 47, 0.96);
+  border: 1px solid rgba(159, 176, 206, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(2, 8, 24, 0.35);
+}
+
+.card {
+  padding: 1rem;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.metric {
+  margin-top: 0.45rem;
+  font-size: 1.65rem;
+  font-weight: 700;
+}
+
+.delta {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.up {
+  color: var(--green);
+}
+
+.down {
+  color: var(--red);
+}
+
+.flat {
+  color: var(--amber);
+}
+
+.panel {
+  padding: 1rem;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.78rem;
+  color: var(--accent);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  white-space: nowrap;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(250px, 1fr);
+  gap: 0.9rem;
+}
+
+.map-wrap {
+  position: relative;
+  border-radius: 12px;
+  background: radial-gradient(circle at 25% 25%, rgba(96, 165, 250, 0.14), rgba(7, 12, 24, 0.5));
+  border: 1px solid rgba(159, 176, 206, 0.18);
+  padding: 0.45rem;
+}
+
+#provinceMap {
+  width: 100%;
+  height: 420px;
+}
+
+.map-shape {
+  fill: rgba(96, 165, 250, 0.12);
+  stroke: rgba(159, 176, 206, 0.4);
+  stroke-width: 2;
+}
+
+.province-dot {
+  fill: #73b6ff;
+  stroke: #0e1628;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.15s ease, fill 0.15s ease;
+}
+
+.province-dot:hover,
+.province-dot.active {
+  fill: #22c55e;
+  transform: scale(1.2);
+}
+
+.province-label {
+  fill: #dbe8ff;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.map-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(8, 13, 25, 0.95);
+  border: 1px solid rgba(115, 182, 255, 0.5);
+  color: #e8eefc;
+  border-radius: 9px;
+  padding: 0.45rem 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translate(-50%, -120%);
+  transition: opacity 0.15s ease;
+}
+
+.province-info {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(159, 176, 206, 0.2);
+  padding: 0.9rem;
+}
+
+.province-info h3 {
+  margin: 0;
+}
+
+.muted {
+  margin-top: 0.3rem;
+  color: var(--muted);
+}
+
+.province-metrics {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.province-metrics li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  padding: 0.55rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.province-metrics span {
+  color: var(--muted);
+}
+
+.split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.city-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.city-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.highlights {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.highlight {
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.highlight strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+#priceChart {
+  width: 100%;
+  height: 220px;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 0 1rem 1.4rem;
+}
+
+@media (max-width: 920px) {
+  .split-grid,
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #provinceMap {
+    height: 380px;
+  }
+}

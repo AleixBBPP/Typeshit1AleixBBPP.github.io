@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Vivienda</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Dashboard de Mercado de Vivienda</h1>
+      <p>
+        Seguimiento del aumento de precio de la vivienda, precio medio y métricas
+        relevantes por provincia en España.
+      </p>
+    </header>
+
+    <main class="container">
+      <section class="kpi-grid" id="kpi-grid"></section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Evolución del precio medio mensual (€/m²)</h2>
+          <span class="badge">Últimos 12 meses</span>
+        </div>
+        <canvas id="priceChart" height="130"></canvas>
+      </section>
+
+      <section class="panel map-panel">
+        <div class="panel-header">
+          <h2>Mapa interactivo de provincias</h2>
+          <span class="badge">Click en una provincia</span>
+        </div>
+
+        <div class="map-layout">
+          <div class="map-wrap">
+            <svg id="provinceMap" viewBox="0 0 760 560" aria-label="Mapa interactivo de provincias"></svg>
+            <div id="mapTooltip" class="map-tooltip" role="status" aria-live="polite"></div>
+          </div>
+
+          <aside class="province-info" id="province-info">
+            <h3 id="province-name">Selecciona una provincia</h3>
+            <p id="province-region" class="muted"></p>
+            <ul class="province-metrics">
+              <li><span>Precio medio</span><strong id="province-price">-</strong></li>
+              <li><span>Variación interanual</span><strong id="province-yoy">-</strong></li>
+              <li><span>Precio alquiler</span><strong id="province-rent">-</strong></li>
+              <li><span>Rentabilidad bruta</span><strong id="province-yield">-</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="split-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Top 10 provincias con más subida</h2>
+          </div>
+          <ul id="city-list" class="city-list"></ul>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Datos relevantes de vivienda</h2>
+          </div>
+          <div id="highlights" class="highlights"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        * Datos de ejemplo para visualización. Puedes conectarlo a una API real
+        (MITMA, INE, idealista, etc.) más adelante.
+      </small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
