@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Vivienda</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Dashboard de Mercado de Vivienda</h1>
+      <p>
+        Seguimiento del aumento de precio de la vivienda, precio medio y
+        métricas relevantes del sector.
+      </p>
+    </header>
+
+    <main class="container">
+      <section class="kpi-grid" id="kpi-grid"></section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Evolución del precio medio mensual (€/m²)</h2>
+          <span class="badge">Últimos 12 meses</span>
+        </div>
+        <canvas id="priceChart" height="130"></canvas>
+      </section>
+
+      <section class="split-grid">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Variación interanual por ciudad</h2>
+          </div>
+          <ul id="city-list" class="city-list"></ul>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Datos relevantes de vivienda</h2>
+          </div>
+          <div id="highlights" class="highlights"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        * Datos de ejemplo para visualización. Puedes conectarlo a una API real
+        (INE, idealista, etc.) más adelante.
+      </small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
